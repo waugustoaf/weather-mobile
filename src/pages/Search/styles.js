@@ -48,3 +48,13 @@ export const Icon = styled.TouchableOpacity`
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
 `;
+
+
+
+
+export const ErrorMessage = styled.Text`
+  color: #ff0000;
+  font-size: 18px;
+  font-weight: bold; 
+  margin-top: 30px;
+`;
