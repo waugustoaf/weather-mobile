@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "weather",
+    "name": "Weather",
     "slug": "weather",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -8,7 +8,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#46B4EB"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -17,13 +17,13 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "br.com.waugustoaf.weather",
+      "buildNumber": "1.0.0"
     },
     "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
+      "package": "br.com.waugustoaf.weather",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./assets/favicon.png"

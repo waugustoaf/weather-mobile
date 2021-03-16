@@ -5,11 +5,17 @@ export const Container = styled.SafeAreaView`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: #E8F0FF;
+  background-color: #e8f0ff;
   padding-top: 5%;
 `;
 
-export const Text = styled.Text`
-  color: #000;
+export const DaysList = styled.FlatList`
+  margin-top: 15px;
+  margin-left: 10px;
+`;
+
+export const ErrorMsgText = styled.Text`
+  color: #ff0000;
+  font-size: 18px;
   font-weight: bold;
 `;
