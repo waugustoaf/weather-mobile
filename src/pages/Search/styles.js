@@ -1,3 +1,4 @@
+import { LinearGradient } from 'expo-linear-gradient';
 import styled from 'styled-components/native';
 
 export const Container = styled.SafeAreaView`
@@ -49,12 +50,38 @@ export const Icon = styled.TouchableOpacity`
   border-bottom-right-radius: 8px;
 `;
 
+export const Header = styled(LinearGradient)`
+  margin-top: 5%;
+  width: 90%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px;
+`;
 
+export const DateText = styled.Text`
+  color: #fff;
+  font-size: 16px;
+`;
 
+export const NameText = styled.Text`
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+`;
+
+export const TemperatureContainer = styled.View``;
+
+export const TemperatureText = styled.Text`
+  font-size: 90px;
+  font-weight: bold;
+  color: #fff;
+`;
 
 export const ErrorMessage = styled.Text`
   color: #ff0000;
   font-size: 18px;
-  font-weight: bold; 
+  font-weight: bold;
   margin-top: 30px;
 `;

@@ -1,26 +1,26 @@
-import * as Location from "expo-location";
-import React, { useEffect, useState } from "react";
-import Conditions from "../../components/Conditions";
-import Forecast from "../../components/Forecast";
-import Header from "../../components/Header";
-import Menu from "../../components/Menu";
-import { Container, DaysList, ErrorMsgText } from "./styles";
-import api, { key } from "../../services/api";
-import { ActivityIndicator } from "react-native";
+import * as Location from 'expo-location';
+import React, { useEffect, useState } from 'react';
+import Conditions from '../../components/Conditions';
+import Forecast from '../../components/Forecast';
+import Header from '../../components/Header';
+import Menu from '../../components/Menu';
+import { Container, DaysList, ErrorMsgText } from './styles';
+import api, { key } from '../../services/api';
+import { ActivityIndicator } from 'react-native';
 
 export default function Home() {
   const [errorMsg, setErrorMsg] = useState(null);
   const [weather, setWeather] = useState({});
   const [forecasts, setForecasts] = useState([]);
-  const [icon, setIcon] = useState({ name: "cloud", color: "#fff" });
-  const [background, setBackground] = useState(["#1ed6ff", "#97c1ff"]);
+  const [icon, setIcon] = useState({ name: 'cloud', color: '#fff' });
+  const [background, setBackground] = useState(['#1ed6ff', '#97c1ff']);
 
   useEffect(() => {
     (async () => {
       let { status } = await Location.requestPermissionsAsync();
 
-      if (status !== "granted") {
-        setErrorMsg("Permissão negada para acessa a localização");
+      if (status !== 'granted') {
+        setErrorMsg('Permissão negada para acessa a localização');
         return (
           <Container>
             <ErrorMsgText>{errorMsg}</ErrorMsgText>
@@ -33,23 +33,23 @@ export default function Home() {
       ).coords;
 
       const response = await api.get(
-        `/weather?key=${key}&lat=${latitude}&lon=${longitude}`
+        `/weather?key=${key}&lat=${latitude}&lon=${longitude}`,
       );
 
       setWeather(response.data.results);
       setForecasts(weather.forecast);
 
-      if (weather.currently === "noite") {
-        setBackground(["#0c3741", "#0f2f61"]);
+      if (weather.currently === 'noite') {
+        setBackground(['#0c3741', '#0f2f61']);
       }
 
       switch (weather.condition_slug) {
-        case "clear_day":
-          setIcon({ name: "partly-sunny", color: "#FFB300" });
+        case 'clear_day':
+          setIcon({ name: 'partly-sunny', color: '#FFB300' });
           break;
-        case "rain":
-        case "storm":
-          setIcon({ name: "rainy", color: "#FFF" });
+        case 'rain':
+        case 'storm':
+          setIcon({ name: 'rainy', color: '#FFF' });
           break;
       }
     })();
@@ -61,7 +61,7 @@ export default function Home() {
   ) {
     return (
       <Container>
-        <ActivityIndicator size={100} color="#1ec6ff" />
+        <ActivityIndicator size={100} color='#1ec6ff' />
       </Container>
     );
   }
@@ -83,8 +83,9 @@ export default function Home() {
         humidity={weather.humidity}
       />
       <DaysList
+        showsHorizontalScrollIndicator={false}
         horizontal={true}
-        contentContainerStyle={{ paddingBottom: "5%" }}
+        contentContainerStyle={{ paddingBottom: '5%' }}
         data={forecasts}
         keyExtractor={(item) => item.date}
         renderItem={({ item }) => <Forecast data={item} />}
