@@ -39,8 +39,6 @@
 
 ## :fire: Technologies
 
-This project was developed based on the Rocketseat's Next Level Week 4
-
 - [React Native](https://reactnative.dev/)
 - [Expo](https://expo.io/)
 - [VS Code][vscode]
